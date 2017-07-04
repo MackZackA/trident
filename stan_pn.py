@@ -59,10 +59,6 @@ for idx in range(0, len(tag_sent)):
             else:    
                 p_phrase.append(pair[0])
                 print("print p_phrase after collection", p_phrase)
-#                ner = ' '.join(p_phrase)
-#                print("print ner: ", ner)
-#                person_list.append(ner)
-#                p_phrase = []
     elif 'ORGANIZATION' in pair[1]:
         isNER = 2
         if temp == isNER:
@@ -87,10 +83,6 @@ for idx in range(0, len(tag_sent)):
             else:    
                 o_phrase.append(pair[0])
                 print("print o_phrase after collection", o_phrase)
-#                ner = ' '.join(o_phrase)
-#                print("print ner: ", ner)
-#                organization_list.append(ner)
-#                o_phrase = []
     else:
         isNER = 0
         if len(p_phrase) != 0:
@@ -107,10 +99,6 @@ for idx in range(0, len(tag_sent)):
             o_phrase = []
 
         continue
-
-# the real issue is: 
-# 1.in else 62, I didn't take in into person or organization list (That's fine, since we need to resolve the issue in the secondary else in each "if" and "elif")
-# 2.to resolve term 1, consider making isNER working: detecting if next token is another NER or is not an NER
 
 print("Names of people: ", person_list)
 print("Names of organizations: ", organization_list)
